@@ -38,6 +38,9 @@ x_test = np.array(x_test)
 y_labTest = np.array(y_labTest)
 y_test = to_categorical(y_labTest, num_classes=3, dtype='float32')
 
+@app.route('/hello', methods=['GET'])
+def hello():
+    return "hello"
 
 @app.route('/predict', methods=['POST'])
 def predict():

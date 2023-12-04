@@ -13,13 +13,13 @@ import pandas as pd
 import glob
 import numpy as np
 
-trainpath = '../TrainImages/'
+trainpath = './TrainImages/'
 v_TrainPath = glob.glob(trainpath + '*')
 print(len(v_TrainPath))  # Asegúrate de que esto retorne 120
 
-df_test = pd.read_csv('../solution_stg1_release.csv', sep=';')
-testpath = '../TestImages/'
-modelspath = '../Models/'
+df_test = pd.read_csv('./solution_stg1_release.csv', sep=';')
+testpath = './TestImages/'
+modelspath = './Models/'
 
 print(df_test.head())
 
@@ -29,7 +29,7 @@ y_labels = []
 for i in v_TrainPath:
     im = plt.imread(i)
     x_train.append(im)
-    aux_split = i.split("TrainImages\\")[1]
+    aux_split = i.split("TrainImages")[1][1:]
     im_class = aux_split.split('_')[0]
     if im_class == '001':
         y_labels.append(0)
